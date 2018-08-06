@@ -1,0 +1,9 @@
+---
+  platforms:
+    macos:
+      build_targets:
+        - "//androidAppModule0"
+      build_flags:
+        - "--android_aapt=aapt2"
+        - "--strategy=DexBuilder=worker"
+        - "--worker_max_instances=2"
