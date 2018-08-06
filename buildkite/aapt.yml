@@ -2,8 +2,6 @@
 ---
   platforms:
     macos:
-      shell_commands:
-        - cd simple_tree
       build_targets:
         - "//androidAppModule0"
       build_flags:
