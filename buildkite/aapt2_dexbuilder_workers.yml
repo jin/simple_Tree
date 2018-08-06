@@ -1,6 +1,8 @@
 ---
   platforms:
     macos:
+      shell_commands:
+        - bazel clean
       build_targets:
         - "//androidAppModule0"
       build_flags:
