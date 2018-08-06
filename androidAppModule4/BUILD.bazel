@@ -1,0 +1,18 @@
+load("@gmaven_rules//:defs.bzl", "gmaven_artifact")
+
+android_library(
+    name = "androidAppModule4",
+    srcs = glob(["src/main/java/**/*.java"]), 
+    resource_files = glob(["src/main/res/**/*"]),
+    manifest = "src/main/AndroidManifest.xml",
+    custom_package = "com.androidAppModule4",
+    visibility = ["//visibility:public"], 
+    deps = [
+        "//module3",
+        "//module4",
+        gmaven_artifact("com.android.support:appcompat-v7:aar:26.1.0"),
+        gmaven_artifact("com.android.support.constraint:constraint-layout:aar:1.0.2"),
+        gmaven_artifact("com.android.support:multidex:aar:1.0.1")
+    ],
+)
+        
