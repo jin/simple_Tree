@@ -64,8 +64,10 @@ def key_by_action_type(action):
         return " ".join(partitions[:2])
     elif first_word in ["Merging", "Validating", "Processing", "Creating", "Parsing", "Compiling", "Generating", "Assembling"]:
         return " ".join(partitions[:3])
-    elif first_word in ["Sharding"]:
+    elif first_word in ["Sharding", "Linking"]:
         return " ".join(partitions[:4])
+    elif first_word in ["Checking"]:
+        return " ".join(partitions[:6])
     else:
         return " ".join(partitions)
 
