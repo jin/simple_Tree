@@ -15,7 +15,7 @@ control: clean
 	$(bazel) build $(target) $(common_flags)
 
 rbe-javabase-issue:
-	$(bazel) build $(target) --config=javabase_linking_issue --config=results $(common_flags)
+	$(bazel) build $(target) --config=javabase_linking_issue $(common_flags)
 
 rbe:
 	$(bazel) build $(target) --config=remote --config=results $(common_flags)
