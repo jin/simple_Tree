@@ -1,0 +1,27 @@
+# Remote Build Execution requires a strong hash function, such as SHA256.
+startup --host_jvm_args=-Dbazel.DigestFunction=SHA256
+
+# Set several flags related to specifying the platform, toolchain and java
+# properties.
+# These flags are duplicated rather than imported from (for example)
+# %workspace%/configs/ubuntu16_04_clang/1.0/toolchain.bazelrc to make this
+# bazelrc a standalone file that can be copied more easily.
+# These flags should only be used as is for the rbe-ubuntu16-04 container
+# and need to be adapted to work with other toolchain containers.
+build:javabase_linking_issue --host_javabase=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:jdk8
+build:javabase_linking_issue --javabase=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:jdk8
+build:javabase_linking_issue --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8
+build:javabase_linking_issue --java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8
+build:javabase_linking_issue --crosstool_top=@bazel_toolchains//configs/ubuntu16_04_clang/1.0/bazel_0.16.1/default:toolchain
+# Platform flags:
+# The toolchain container used for execution is defined in the target indicated
+# by "extra_execution_platforms", "host_platform" and "platforms".
+# If you are using your own toolchain container, you need to create a platform
+# target with "constraint_values" that allow for the toolchain specified with
+# "extra_toolchains" to be selected (given constraints defined in
+# "exec_compatible_with").
+# More about platforms: https://docs.bazel.build/versions/master/platforms.html
+build:javabase_linking_issue --extra_toolchains=@bazel_toolchains//configs/ubuntu16_04_clang/1.0/bazel_0.16.1/cpp:cc-toolchain-clang-x86_64-default
+build:javabase_linking_issue --extra_execution_platforms=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:rbe_ubuntu1604
+build:javabase_linking_issue --host_platform=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:rbe_ubuntu1604
+build:javabase_linking_issue --platforms=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:rbe_ubuntu1604
