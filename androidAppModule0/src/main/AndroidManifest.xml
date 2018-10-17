@@ -32,4 +32,4 @@
         </activity>
  </application>
 
-<!-- _1532585280342_1 --><permission android:name="com.acme.SOME_PERMISSION"/><!-- _1532760339590_5 --><permission android:name="com.acme.SOME_PERMISSION"/></manifest>
+</manifest>
