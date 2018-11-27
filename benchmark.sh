@@ -18,8 +18,8 @@ targets="cleanWithColdLocalCache cleanWithColdLocalCacheWithDaemon abiChangeWith
 # targets="androidResourceChangeWithLeafLocalCache"
 timestampDir=$(date +"%Y%m%d_%H%M%S")
 outputDir=output/$timestampDir-$version
-iterations=10
-warmups=3
+iterations=1
+warmups=1
 
 echo "Exporting benchmark data to $outputDir"
 
