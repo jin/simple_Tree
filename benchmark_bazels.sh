@@ -1,12 +1,13 @@
 #!/bin/bash
 set -xeuo pipefail
 
-BAZEL_ROOT="/opt/bazel"
+# BAZEL_ROOT="$HOME/bazels/"
+BAZEL_ROOT="/usr/bin"
 
 # versions="bazel-0.13.1-darwin-x86_64 bazel-0.14.1-darwin-x86_64  bazel-0.15.2-darwin-x86_64 bazel-0.16.0rc1-darwin-x86_64"
-# versions="dev-rpbb-worker 0.15.2 0.16.0rc4"
+# versions="dev-dynamic 0.18.0"
 
-# for version in $versions; do 
+# for version in $versions; do
 #   benchmark_version $version
 # done
 
@@ -29,9 +30,14 @@ function select_version() {
 }
 
 # ManifestMerger, AndroidResourceMerger, AndroidCompiledResourceMerger
-experiment_flags='"--strategy=AaptPackage=worker", "--strategy=AndroidResourceParser=worker", "--strategy=AndroidResourceValidator=worker", "--strategy=AndroidResourceCompiler=worker", "--strategy=RClassGenerator=worker", "--strategy=AndroidAssetMerger=worker", "--strategy=AndroidResourceLink=worker", "--android_aapt=aapt2", "--strategy=AndroidAapt2=worker", "--worker_max_instances=2", "--strategy=DexBuilder=worker", "--spawn_strategy=standalone"' 
-control_flags='"--spawn_strategy=standalone"'
+# experiment_flags='"--config=remote", "--android_aapt=aapt2"'
+experiment_flags='"--config=dynamic_android", "--android_aapt=aapt2"'
+control_flags='"--android_aapt=aapt2", "--persistent_android_resource_processor"'
 
-benchmark_version dev-rpbb-worker $experiment_flags
+benchmark_version bazel $experiment_flags
+# benchmark_version dev-dynamic $experiment_flags
+# benchmark_version "0.19.0" $control_flags
+
+# benchmark_version dev-rpbb-worker $experiment_flags
 # benchmark_version "0.15.2" $control_flags
 # benchmark_version "0.16.0rc4" $control_flags
