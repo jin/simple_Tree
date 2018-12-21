@@ -1,8 +1,8 @@
 #!/bin/bash
 set -xeuo pipefail
 
-# BAZEL_ROOT="$HOME/bazels/"
-BAZEL_ROOT="/usr/bin"
+BAZEL_ROOT="$HOME/bazels/"
+# BAZEL_ROOT="/usr/bin"
 
 # versions="bazel-0.13.1-darwin-x86_64 bazel-0.14.1-darwin-x86_64  bazel-0.15.2-darwin-x86_64 bazel-0.16.0rc1-darwin-x86_64"
 # versions="dev-dynamic 0.18.0"

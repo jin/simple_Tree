@@ -19,7 +19,7 @@ targets="cleanWithColdLocalCache cleanWithColdLocalCacheWithDaemon abiChangeWith
 timestampDir=$(date +"%Y%m%d_%H%M%S")
 outputDir=output/$timestampDir-$version
 iterations=10
-warmups=3
+warmups=6
 
 echo "Exporting benchmark data to $outputDir"
 
