@@ -1,6 +1,6 @@
 {
   "projectName": "simple_tree",
-  "root": ".",
+  "root": "./",
   "gradleVersion": "4.7",
   "androidGradlePluginVersion": "3.1.0",
   "kotlinVersion": "1.1.60",
@@ -23,5 +23,6 @@
     {"from": "module1", "to": "module0"}
   ],
   "buildTypes": 1,
-  "generateTests": false
+  "generateTests": false,
+  "generateBazelFiles": true
 }

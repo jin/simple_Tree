@@ -1,4 +1,4 @@
-digraph simple_tree {
+digraph simple_tree2 {
   androidAppModule0 -> androidAppModule1, androidAppModule2, androidAppModule3;
   androidAppModule1 -> androidAppModule4, androidAppModule5, androidAppModule6;
   androidAppModule2 -> androidAppModule7, androidAppModule8, androidAppModule9;

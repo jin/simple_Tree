@@ -1,20 +1,20 @@
-load("@gmaven_rules//:defs.bzl", "gmaven_artifact")
-
+load("@rules_jvm_external//:defs.bzl", "artifact")
 android_binary(
     name = "androidAppModule0",
-    srcs = glob(["src/main/java/**/*.java"]), 
+    srcs = glob(["src/main/java/**/*.java"]),
     multidex = "native",
     resource_files = glob(["src/main/res/**/*"]),
     manifest = "src/main/AndroidManifest.xml",
     custom_package = "com.androidAppModule0",
-    visibility = ["//visibility:public"], 
+    visibility = ["//visibility:public"],
     deps = [
-        "//androidAppModule1",
         "//androidAppModule2",
+        "//androidAppModule1",
         "//androidAppModule3",
-        gmaven_artifact("com.android.support:appcompat-v7:aar:26.1.0"),
-        gmaven_artifact("com.android.support.constraint:constraint-layout:aar:1.0.2"),
-        gmaven_artifact("com.android.support:multidex:aar:1.0.1")
+        artifact("com.android.support:appcompat-v7:aar:26.1.0"),
+        artifact("com.android.support.constraint:constraint-layout:aar:1.0.2"),
+        artifact("com.android.support:multidex:aar:1.0.1"),
+        artifact("com.android.support.test:runner:aar:1.0.1"),
+        artifact("com.android.support.test.espresso:espresso-core:aar:3.0.1")
     ],
 )
-        
